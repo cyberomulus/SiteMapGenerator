@@ -14,13 +14,25 @@ use Cyberomulus\SiteMapGenerator\SiteMap;
 use Cyberomulus\SiteMapGenerator\SiteMapIndex;
 
 /**
- *
+ * Abstract class for all formatter
  *
  * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
- */
- 
+ */ 
 abstract class Formatter
 	{
+	/**
+	 * Use for format and output a site's map
+	 * 
+	 * @param	SiteMap		$siteMap
+	 * 				Site's map to format and output
+	 */
 	abstract public function formatSiteMap(SiteMap $siteMap);
+	
+	/**
+	 * Use for format and output a index of site's map
+	 * 
+	 * @param	SiteMapIndex	$siteMapIndex
+	 * 				Index of site's map to format and output
+	 */
 	abstract public function formatSiteMapIndex(SiteMapIndex $siteMapIndex);
 	}
