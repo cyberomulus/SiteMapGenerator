@@ -36,14 +36,24 @@ class SiteMap
 		}
 	
 	/**
-	 * @param 	URLEntry	$urlEntry
+	 * @param 	URLEntry|URLEntry[]		$urlEntry
 	 * 				a URL entries to add
 	 * 				
 	 * @return 	SiteMap		this
 	 */
 	public function addUrlEntry(URLEntry $urlEntry)
 		{
-		$this->urlEntries[] = $urlEntry;
+		if ($urlEntry == null)
+			return;
+		
+		if (is_array($urlEntry))
+			{
+			$merge = array_merge($urlEntry, $this->urlEntries);
+			$this->urlEntries = $merge;
+			}
+		else 
+			$this->urlEntries[] = $urlEntry;
+		
 		return $this;
 		}
 	
