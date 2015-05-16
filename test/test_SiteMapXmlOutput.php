@@ -13,10 +13,12 @@ $sitemap = new SiteMap();
 
 $url1 = new URLEntry("http://www.test.com/ok.php", new DateTime(), URLEntry::CHANGE_FEQUENCE_DAILY, "0.5");
 $url2 = new URLEntry("http://www.test.com/nice.php", new DateTime(), URLEntry::CHANGE_FEQUENCE_NEVER);
+$url3 = new URLEntry("http://www.test.com/nice.php?test=ok&restet=super", new DateTime(), URLEntry::CHANGE_FEQUENCE_NEVER);
 
 $sitemap->addUrlEntry($url1);
 $sitemap->addUrlEntry($url2);
+$sitemap->addUrlEntry($url3);
 
 $formatter = new XMLFormatter();
 
-echo "<pre>" . htmlentities($formatter->formatSiteMap($sitemap)) . "</pre>";
+echo "<pre>" . $formatter->formatSiteMap($sitemap) . "</pre>";

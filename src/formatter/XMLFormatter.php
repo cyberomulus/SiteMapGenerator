@@ -41,7 +41,7 @@ class XMLFormatter extends Formatter
 			if ($urlEntry->getUrl() != null)
 				{
 				$writer->startElement("url");
-				$writer->writeElement("loc", $urlEntry->getUrl());
+				$writer->writeElement("loc", htmlentities($urlEntry->getUrl(), null, "UTF-8", true));
 				
 				if ($urlEntry->getLastModification())
 					$writer->writeElement("lastmod", $urlEntry->getLastModification()->format(\DateTime::W3C));
