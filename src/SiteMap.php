@@ -13,25 +13,43 @@ namespace Cyberomulus\SiteMapGenerator;
 use Cyberomulus\SiteMapGenerator\Entries\URLEntry;
 
 /**
- * 
+ * This class represent a site's map
  * 
  * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
  */
 class SiteMap
 	{
+	/**
+	 * Array of URL entries
+	 * 
+	 * @var	array
+	 * @see	URLEntry
+	 */
 	private $urlEntries;
 	
+	/**
+	 * Construct a site's map
+	 */
 	public function __construct()
 		{
 		$this->urlEntries = array();
 		}
 	
+	/**
+	 * @param 	URLEntry	$urlEntry
+	 * 				a URL entries to add
+	 * 				
+	 * @return 	SiteMap		this
+	 */
 	public function addUrlEntry(URLEntry $urlEntry)
 		{
 		$this->urlEntries[] = $urlEntry;
 		return $this;
 		}
 	
+	/**
+	 * @return	array	Array of URL entries
+	 */
 	public function getUrlEntries()
 		{
 		return $this->urlEntries;
