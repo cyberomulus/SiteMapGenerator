@@ -44,7 +44,7 @@ class XMLFormatter extends Formatter
 				$writer->writeElement("loc", $urlEntry->getUrl());
 				
 				if ($urlEntry->getLastModification())
-					$writer->writeElement("lastmod", $urlEntry->getLastModification());
+					$writer->writeElement("lastmod", $urlEntry->getLastModification()->format(\DateTime::W3C));
 				
 				if ($urlEntry->getChangeFrequence())
 					$writer->writeElement("changefreq", $urlEntry->getChangeFrequence());

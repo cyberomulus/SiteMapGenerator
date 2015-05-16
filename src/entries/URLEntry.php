@@ -76,21 +76,21 @@ class URLEntry
 	/**
 	 * Date of URL's last modification
 	 * 
-	 * @var \DateTime
+	 * @var \DateTime|null
 	 */
 	private $lastModification;
 	
 	/**
 	 * Interval of URL's frequency change
 	 * 
-	 * @var String
+	 * @var String|null
 	 */
 	private $changeFrequence;
 
 	/**
 	 * The priority of this URL relative to other URLs on your site
 	 * 
-	 * @var unknown
+	 * @var String|null
 	 */
 	private $priority;
 	
@@ -99,13 +99,16 @@ class URLEntry
 	 * 
 	 * @param	String 		$url
 	 * 				Location's URL
-	 * @param	\DateTime	$lastModification
-	 * 				Date of URL's last modification
-	 * @param	string 		$changeFrequence
+	 * @param	\DateTime|null	$lastModification
+	 * 				Date of URL's last modification.<br />
+	 * 				Set null for not display
+	 * @param	string|null		$changeFrequence
 	 * 				Interval of URL's frequency change.<br />
-	 * 				Use a this class's constant (CHANGE_FEQUENCE_...)
-	 * @param	string 		$priority
-	 * 				The priority of this URL relative to other URLs on your site
+	 * 				Use a this class's constant (CHANGE_FEQUENCE_...).<br />
+	 * 				Set null for not display
+	 * @param	string|null 	$priority
+	 * 				The priority of this URL relative to other URLs on your site.<br />
+	 * 				Set null for not display
 	 */
 	public function __construct($url, \DateTime $lastModification=null, $changeFrequence=null, $priority=null)
 		{
@@ -144,8 +147,9 @@ class URLEntry
 		}
 	
 	/**
-	 * @param	\DateTime	$lastModification
-	 * 				Date of URL's last modification
+	 * @param	\DateTime|null	$lastModification
+	 * 				Date of URL's last modification.<br />
+	 * 				Set null for not display
 	 * @return	URLEntry	this
 	 */
 	public function setLastModification(\DateTime $lastModification)
@@ -163,14 +167,27 @@ class URLEntry
 		}
 	
 	/**
-	 * @param	String	$changeFrequence
+	 * @param	String|null	$changeFrequence
 	 * 				Interval of URL's frequency change.<br />
-	 * 				Use a this class's constant (CHANGE_FEQUENCE_...)
+	 * 				Use a this class's constant (CHANGE_FEQUENCE_...).<br />
+	 * 				Set null for not display
 	 * @return	URLEntry	this
 	 */
 	public function setChangeFrequence($changeFrequence)
 		{
-		$this->changeFrequence = $changeFrequence;
+		if (in_array($changeFrequence, 
+					array(self::CHANGE_FEQUENCE_ALWAYS,
+							self::CHANGE_FEQUENCE_HOURLY,
+							self::CHANGE_FEQUENCE_DAILY,
+							self::CHANGE_FEQUENCE_WEEKLY,
+							self::CHANGE_FEQUENCE_MONTHLY,
+							self::CHANGE_FEQUENCE_YEARLY,
+							self::CHANGE_FEQUENCE_NEVER,)
+						))
+			$this->changeFrequence = $changeFrequence;
+		
+		else $changeFrequence = null;
+		
 		return $this;
 		}
 		
@@ -183,8 +200,9 @@ class URLEntry
 		}
 		
 	/**
-	 * @param	string 		$priority
-	 * 				The priority of this URL relative to other URLs on your site
+	 * @param	string|null		$priority
+	 * 				The priority of this URL relative to other URLs on your site.<br />
+	 * 				Set null for not display
 	 * @return	URLEntry	this
 	 */
 	public function setPriority($priority)
