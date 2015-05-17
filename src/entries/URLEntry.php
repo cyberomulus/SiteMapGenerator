@@ -11,7 +11,7 @@
 namespace Cyberomulus\SiteMapGenerator\Entries;
  
 /**
- * This class represent an URL entries
+ * This class represent an URL entry
  * 
  * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
  */
