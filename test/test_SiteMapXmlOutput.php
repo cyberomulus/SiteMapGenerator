@@ -8,7 +8,6 @@ use Cyberomulus\SiteMapGenerator\SiteMap;
 use Cyberomulus\SiteMapGenerator\Entries\URLEntry;
 use Cyberomulus\SiteMapGenerator\Formatter\XMLFormatter;
 
-global $sitemap;
 $sitemap = new SiteMap();
 
 $url1 = new URLEntry("http://www.test.com/ok.php", new DateTime(), URLEntry::CHANGE_FEQUENCE_DAILY, "0.5");
