@@ -9,6 +9,8 @@
  */
  
 namespace Cyberomulus\SiteMapGenerator\Entries;
+
+use Cyberomulus\SiteMapGenerator\Entries\GoogleImageEntry;
  
 /**
  * This class represent an URL entry
@@ -95,6 +97,14 @@ class URLEntry
 	private $priority;
 	
 	/**
+	 * Array of image entries for Google
+	 *
+	 * @var	array
+	 * @see	GoogleImageEntry
+	 */
+	private $googleImageEntries;
+	
+	/**
 	 * Construct an URL entries
 	 * 
 	 * @param	String 		$url
@@ -109,13 +119,21 @@ class URLEntry
 	 * @param	string|null 	$priority
 	 * 				The priority of this URL relative to other URLs on your site.<br />
 	 * 				Set null for not display
+	 * @param	GoogleImageEntry[]	$googleImageEntries
+	 * 				An array of GoogleImageEntry.<br />
+	 * 				Set null for not display
 	 */
-	public function __construct($url, \DateTime $lastModification=null, $changeFrequence=null, $priority=null)
+	public function __construct($url, \DateTime $lastModification=null, $changeFrequence=null, $priority=null, $googleImageEntries = null)
 		{
 		$this->url = $url;
 		$this->lastModification = $lastModification;
 		$this->changeFrequence = $changeFrequence;
 		$this->priority = $priority;
+		
+		if (is_array($googleImageEntries))
+			$this->googleImageEntries = $googleImageEntries;
+		else
+			$this->googleImageEntries = null;
 		}
 		
 	/**
@@ -209,5 +227,36 @@ class URLEntry
 		{
 		$this->priority = $priority;
 		return $this;
+		}
+	
+	/**
+	 * Add one or more image entry for Google
+	 *
+	 * @param 	GoogleImageEntry|GoogleImageEntry[]		$googleImageEntry
+	 * 				a image entries for Google to add
+	 * @return 	URLEntry	this
+	 */
+	public function addGoogleImageEntry(GoogleImageEntry $googleImageEntry)
+		{
+		if ($googleImageEntry == null)
+			return;
+		
+		if (is_array($googleImageEntry))
+			{
+			$merge = array_merge($googleImageEntry, $this->googleImageEntries);
+			$this->googleImageEntries = $merge;
+			}
+		else
+			$this->googleImageEntries[] = $googleImageEntry;
+		
+		return $this;
+		}
+		
+	/**
+	 * @return	array	Array of image entries for Google
+	 */
+	public function getGoogleImageEntries()
+		{
+		return $this->googleImageEntries;
 		}
 	}

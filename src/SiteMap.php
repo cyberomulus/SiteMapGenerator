@@ -28,17 +28,29 @@ class SiteMap
 	private $urlEntries;
 	
 	/**
-	 * Construct a site's map
+	 * Activate or not Google Extra (image, video, ...)
+	 * 
+	 * @var	bool
 	 */
-	public function __construct()
+	private $activateGoogleExtra;
+	
+	/**
+	 * Construct a site's map
+	 * 
+	 * @param	bool	$activateGoogleExtra
+	 * 				Activate or not Google Extra (image, video, ...)
+	 */
+	public function __construct($activateGoogleExtra = true)
 		{
 		$this->urlEntries = array();
+		$this->activateGoogleExtra = $activateGoogleExtra;
 		}
 	
 	/**
+	 * Add one or more url entry in SiteMap
+	 * 
 	 * @param 	URLEntry|URLEntry[]		$urlEntry
-	 * 				a URL entries to add
-	 * 				
+	 * 				a URL entries to add		
 	 * @return 	SiteMap		this
 	 */
 	public function addUrlEntry(URLEntry $urlEntry)
@@ -63,5 +75,24 @@ class SiteMap
 	public function getUrlEntries()
 		{
 		return $this->urlEntries;
+		}
+	
+	/**
+	 * @return	bool	true if Google extra (image, video, ...) is activated, else false
+	 */
+	public function getActivateGoogleExtra()
+		{
+		return $this->activateGoogleExtra;
+		}
+		
+	/**
+	 * @param	bool	$activateGoogleExtra
+	 * 				true for activated Google extra (image, video, ...), else false
+	 * @return 	SiteMap		this
+	 */
+	public function setActivateGoogleExtra($activateGoogleExtra)
+		{
+		$this->activateGoogleExtra = $activateGoogleExtra;
+		return $this;
 		}
 	}

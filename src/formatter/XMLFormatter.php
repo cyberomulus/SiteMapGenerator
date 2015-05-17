@@ -13,9 +13,10 @@ namespace Cyberomulus\SiteMapGenerator\Formatter;
 use Cyberomulus\SiteMapGenerator\SiteMap;
 use Cyberomulus\SiteMapGenerator\SiteMapIndex;
 use Cyberomulus\SiteMapGenerator\Entries\URLEntry;
+use Cyberomulus\SiteMapGenerator\Entries\GoogleImageEntry;
 
 /**
- *
+ * This formatter format in XML specification
  *
  * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
  */
@@ -35,6 +36,12 @@ class XMLFormatter extends Formatter
 		// start root
 		$writer->startElementNs(null, "urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
 		
+		// add attributs for Google
+		if ($siteMap->getActivateGoogleExtra() == true)
+			{
+			$writer->writeAttribute("xmlns:image", "http://www.google.com/schemas/sitemap-image/1.1");
+			}
+		
 		// add all url's entries
 		foreach ($siteMap->getUrlEntries() as $urlEntry)
 			{
@@ -51,6 +58,30 @@ class XMLFormatter extends Formatter
 				
 				if ($urlEntry->getPriority())
 					$writer->writeElement("changefreq", $urlEntry->getPriority());
+				
+				// add all Image Entry for Google
+				if ($siteMap->getActivateGoogleExtra() == true)
+					{
+					foreach ($urlEntry->getGoogleImageEntries() as $GoogleImageEntry)
+						{
+						$writer->startElement("image:image");
+						$writer->writeElement("image:loc", htmlentities($GoogleImageEntry->getUrl(), null, "UTF-8", true));
+						
+						if ($GoogleImageEntry->getTitle())
+							$writer->writeElement("image:title", $GoogleImageEntry->getTitle());
+						
+						if ($GoogleImageEntry->getCaption())
+							$writer->writeElement("image:caption", $GoogleImageEntry->getCaption());
+						
+						if ($GoogleImageEntry->getGeo())
+							$writer->writeElement("image:geo_location", $GoogleImageEntry->getGeo());
+						
+						if ($GoogleImageEntry->getLicense())
+							$writer->writeElement("image:license", htmlentities($GoogleImageEntry->getLicense(), null, "UTF-8", true));
+						
+						$writer->endElement();
+						}
+					}
 				
 				$writer->endElement();
 				}
