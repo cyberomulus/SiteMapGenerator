@@ -57,7 +57,7 @@ class XMLFormatter extends Formatter
 					$writer->writeElement("changefreq", $urlEntry->getChangeFrequence());
 				
 				if ($urlEntry->getPriority())
-					$writer->writeElement("changefreq", $urlEntry->getPriority());
+					$writer->writeElement("priority", $urlEntry->getPriority());
 				
 				// add all Image Entry for Google
 				if ($siteMap->getActivateGoogleExtra() == true)
@@ -98,6 +98,39 @@ class XMLFormatter extends Formatter
 	 */
 	public function formatSiteMapIndex(SiteMapIndex $siteMapIndex)
 		{
-		// TODO: Auto-generated method stub
+		// init and configure XMLWriter 
+		$writer = new \XMLWriter();
+		$writer->openMemory();
+		$writer->setIndent(true);
+		$writer->startDocument("1.0", "UTF-8");
+		
+		// start root
+		$writer->startElementNs(null, "urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+		
+		// add all url's entries
+		foreach ($siteMapIndex->getSiteMapEntries() as $siteMapEntry)
+			{
+			if ($siteMapEntry->getUrl() != null)
+				{
+				$writer->startElement("url");
+				$writer->writeElement("loc", htmlentities($siteMapEntry->getUrl(), null, "UTF-8", true));
+		
+				if ($siteMapEntry->getLastModification())
+					$writer->writeElement("lastmod", $siteMapEntry->getLastModification()->format(\DateTime::W3C));
+		
+				if ($siteMapEntry->getChangeFrequence())
+					$writer->writeElement("changefreq", $siteMapEntry->getChangeFrequence());
+		
+				if ($siteMapEntry->getPriority())
+					$writer->writeElement("priority", $siteMapEntry->getPriority());
+				
+				$writer->endElement();				
+				}
+			}
+		
+		// close root
+		$writer->endElement();
+			
+		return $writer->flush();
 		}
 	}

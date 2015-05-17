@@ -1,5 +1,6 @@
 <?php
 require '../src/SiteMap.php';
+require '../src/entries/SiteMapEntry.php';
 require '../src/entries/URLEntry.php';
 require '../src/entries/GoogleImageEntry.php';
 require '../src/formatter/Formatter.php';

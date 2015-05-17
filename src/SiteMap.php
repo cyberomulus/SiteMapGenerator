@@ -53,7 +53,7 @@ class SiteMap
 	 * 				a URL entries to add		
 	 * @return 	SiteMap		this
 	 */
-	public function addUrlEntry(URLEntry $urlEntry)
+	public function addUrlEntry($urlEntry)
 		{
 		if ($urlEntry == null)
 			return;

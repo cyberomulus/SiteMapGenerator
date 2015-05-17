@@ -9,13 +9,60 @@
  */
  
 namespace Cyberomulus\SiteMapGenerator;
+
+use Cyberomulus\SiteMapGenerator\Entries\SiteMapLEntry;
  
 /**
- * 
+ * This class represent a index of site's map
  * 
  * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
  */
 class SiteMapIndex
 	{
+	/**
+	 * Array of SiteMap entries
+	 *
+	 * @var	array
+	 * @see	SiteMapIndex
+	 */
+	private $SiteMapEntries;
 	
+	/**
+	 * Construct a index of site's map
+	 */
+	public function __construct()
+		{
+		$this->SiteMapEntries = array();
+		}
+	
+	/**
+	 * Add one or more SiteMap entry in SiteMapIndex
+	 *
+	 * @param 	SiteMapEntry|SiteMapEntry[]		$siteMapEntry
+	 * 				a URL entries to add
+	 * @return 	SiteMapIndex		this
+	 */
+	public function addSiteMapEntry($siteMapEntry)
+		{
+		if ($siteMapEntry == null)
+			return;
+		
+		if (is_array($siteMapEntry))
+			{
+			$merge = array_merge($siteMapEntry, $this->SiteMapEntries);
+			$this->SiteMapEntries = $merge;
+			}
+		else
+			$this->SiteMapEntries[] = $siteMapEntry;
+		
+		return $this;
+		}
+		
+	/**
+	 * @return	array	Array of SiteMap entries
+	 */
+	public function getSiteMapEntries()
+		{
+		return $this->SiteMapEntries;
+		}
 	}
