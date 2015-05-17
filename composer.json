@@ -1,7 +1,7 @@
 {
 	"name" : "cyberomulus/sitemap-generator",
 	"type" : "library",
-	"description" : "A simple Sitemap generator, including Google extiensions",
+	"description" : "SiteMapGenerator is a PHP library that makes it easy to generate a SiteMap and SiteMapIndex (including Google specific tags).",
 	"keywords" : [
 		"sitemap",
 		"xml",
