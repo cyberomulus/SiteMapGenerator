@@ -11,14 +11,14 @@
 namespace Cyberomulus\SiteMapGenerator\Entries;
 
 use Cyberomulus\SiteMapGenerator\Entries\GoogleImageEntry;
-use Cyberomulus\SiteMapGenerator\Entries\SiteMapLEntry;
+use Cyberomulus\SiteMapGenerator\Entries\SiteMapEntry;
  
 /**
  * This class represent an URL entry
  * 
  * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
  */
-class URLEntry extends SiteMapLEntry
+class URLEntry extends SiteMapEntry
 	{
 	/**
 	 * Array of image entries for Google

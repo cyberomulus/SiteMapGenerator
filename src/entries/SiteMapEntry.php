@@ -129,7 +129,7 @@ class SiteMapEntry
 	/**
 	 * @param	String 		$url
 	 * 				url's entry
-	 * @return	SiteMapLEntry	this
+	 * @return	SiteMapEntry	this
 	 */
 	public function setUrl($url)
 		{
@@ -150,7 +150,7 @@ class SiteMapEntry
 	 * @param	\DateTime|null	$lastModification
 	 * 				Date of entrys last modification.<br />
 	 * 				Set null for not display
-	 * @return	SiteMapLEntry	this
+	 * @return	SiteMapEntry	this
 	 */
 	public function setLastModification(\DateTime $lastModification)
 		{
@@ -171,7 +171,7 @@ class SiteMapEntry
 	 * 				Interval of entry's frequency change.<br />
 	 * 				Use a this class's constant (CHANGE_FEQUENCE_...).<br />
 	 * 				Set null for not display
-	 * @return	SiteMapLEntry	this
+	 * @return	SiteMapEntry	this
 	 */
 	public function setChangeFrequence($changeFrequence)
 		{
@@ -203,7 +203,7 @@ class SiteMapEntry
 	 * @param	string|null		$priority
 	 * 				The priority of this entry relative to other entries on your site.<br />
 	 * 				Set null for not display
-	 * @return	SiteMapLEntry	this
+	 * @return	SiteMapEntry	this
 	 */
 	public function setPriority($priority)
 		{
