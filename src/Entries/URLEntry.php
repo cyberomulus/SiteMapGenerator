@@ -47,17 +47,13 @@ class URLEntry extends SiteMapEntry
 	 * 				An array of GoogleImageEntry.<br />
 	 * 				Set null for not display
 	 */
-	public function __construct($url, \DateTime $lastModification=null, $changeFrequence=null, $priority=null, $googleImageEntries = null)
+	public function __construct($url, \DateTime $lastModification=null, $changeFrequence=null, $priority=null, $googleImageEntries = array())
 		{
 		$this->url = $url;
 		$this->lastModification = $lastModification;
 		$this->changeFrequence = $changeFrequence;
 		$this->priority = $priority;
-		
-		if (is_array($googleImageEntries))
-			$this->googleImageEntries = $googleImageEntries;
-		else
-			$this->googleImageEntries = null;
+		$this->googleImageEntries = $googleImageEntries;
 		}
 		
 	/**
