@@ -15,7 +15,7 @@ namespace Cyberomulus\SiteMapGenerator\Entries;
  * 
  * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
  */
-class SiteMapLEntry
+class SiteMapEntry
 	{
 	/**
 	 * Use for value of $changeFrequence.

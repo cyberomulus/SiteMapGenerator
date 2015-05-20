@@ -10,7 +10,7 @@
  
 namespace Cyberomulus\SiteMapGenerator;
 
-use Cyberomulus\SiteMapGenerator\Entries\SiteMapLEntry;
+use Cyberomulus\SiteMapGenerator\Entries\SiteMapEntry;
  
 /**
  * This class represent a index of site's map
@@ -42,7 +42,7 @@ class SiteMapIndex
 	 * 				a URL entries to add
 	 * @return 	SiteMapIndex		this
 	 */
-	public function addSiteMapEntry($siteMapEntry)
+	public function addSiteMapEntry(SiteMapEntry $siteMapEntry)
 		{
 		if ($siteMapEntry == null)
 			return;
