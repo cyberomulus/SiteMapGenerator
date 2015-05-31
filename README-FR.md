@@ -13,7 +13,7 @@ Il suffit d'ajouter la dépendances à votre fichier composer.json:
 	
 	{
 		"require": {
-            "cyberomulus/sitemap-generator": "1.0"
+            "cyberomulus/sitemap-generator": "~1.0"
         }
     }
 	
@@ -175,24 +175,24 @@ Le résultat :
 Le résultat :
 
 	<?xml version="1.0" encoding="UTF-8"?>
-	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	 <url>
+	<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	 <sitemap>
 	  <loc>http://www.test.com/sitemap1.xml</loc>
 	  <lastmod>2015-05-17T15:07:40+02:00</lastmod>
 	  <changefreq>always</changefreq>
 	  <priority>0.5</priority>
-	 </url>
-	 <url>
+	 </sitemap>
+	 <sitemap>
 	  <loc>http://www.test.com/sitemap1.xml</loc>
 	  <lastmod>2015-05-17T15:07:40+02:00</lastmod>
 	  <changefreq>never</changefreq>
-	 </url>
-	 <url>
+	 </sitemap>
+	 <sitemap>
 	  <loc>http://www.test.com/sitemap.php?code=3&amp;amp;restet=super</loc>
 	  <lastmod>2015-05-17T15:07:40+02:00</lastmod>
 	  <changefreq>never</changefreq>
-	 </url>
-	</urlset>
+	 </sitemap>
+	</sitemapindex>
 
 ## Sous quelle licence est SiteMapGenerator
 SiteMapGenerator est sous licence MIT (licence libre).  

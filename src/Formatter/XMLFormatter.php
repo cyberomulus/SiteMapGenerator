@@ -105,14 +105,14 @@ class XMLFormatter extends Formatter
 		$writer->startDocument("1.0", "UTF-8");
 		
 		// start root
-		$writer->startElementNs(null, "urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+		$writer->startElementNs(null, "sitemapindex", "http://www.sitemaps.org/schemas/sitemap/0.9");
 		
 		// add all url's entries
 		foreach ($siteMapIndex->getSiteMapEntries() as $siteMapEntry)
 			{
 			if ($siteMapEntry->getUrl() != null)
 				{
-				$writer->startElement("url");
+				$writer->startElement("sitemap");
 				$writer->writeElement("loc", htmlentities($siteMapEntry->getUrl(), null, "UTF-8", true));
 		
 				if ($siteMapEntry->getLastModification())
