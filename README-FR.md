@@ -13,7 +13,7 @@ Il suffit d'ajouter la dépendances à votre fichier composer.json:
 	
 	{
 		"require": {
-            "cyberomulus/sitemap-generator": "~1.0"
+            "cyberomulus/sitemap-generator": "~2.0"
         }
     }
 	
@@ -157,9 +157,9 @@ Le résultat :
 	$sitemapindex = new SiteMapIndex();
 	
 	// crée les entrées sitemap
-	$sitemap1 = new SiteMapLEntry("http://www.test.com/sitemap1.xml", new DateTime(), SiteMapLEntry::CHANGE_FEQUENCE_ALWAYS, "0.5");
-	$sitemap2 = new SiteMapLEntry("http://www.test.com/sitemap1.xml", new DateTime(), SiteMapLEntry::CHANGE_FEQUENCE_NEVER);
-	$sitemap3 = new SiteMapLEntry("http://www.test.com/sitemap.php?code=3&restet=super", new DateTime(), SiteMapLEntry::CHANGE_FEQUENCE_NEVER);
+	$sitemap1 = new SiteMapLEntry("http://www.test.com/sitemap1.xml", new DateTime());
+	$sitemap2 = new SiteMapLEntry("http://www.test.com/sitemap1.xml", new DateTime());
+	$sitemap3 = new SiteMapLEntry("http://www.test.com/sitemap.php?code=3&restet=super", new DateTime());
 	
 	// ajoute les sitemap dans le sitemapindex
 	$sitemapindex->addSiteMapEntry($sitemap1);
@@ -179,18 +179,14 @@ Le résultat :
 	 <sitemap>
 	  <loc>http://www.test.com/sitemap1.xml</loc>
 	  <lastmod>2015-05-17T15:07:40+02:00</lastmod>
-	  <changefreq>always</changefreq>
-	  <priority>0.5</priority>
 	 </sitemap>
 	 <sitemap>
 	  <loc>http://www.test.com/sitemap1.xml</loc>
 	  <lastmod>2015-05-17T15:07:40+02:00</lastmod>
-	  <changefreq>never</changefreq>
 	 </sitemap>
 	 <sitemap>
 	  <loc>http://www.test.com/sitemap.php?code=3&amp;amp;restet=super</loc>
 	  <lastmod>2015-05-17T15:07:40+02:00</lastmod>
-	  <changefreq>never</changefreq>
 	 </sitemap>
 	</sitemapindex>
 
