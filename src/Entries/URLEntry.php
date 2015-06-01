@@ -21,6 +21,69 @@ use Cyberomulus\SiteMapGenerator\Entries\SiteMapEntry;
 class URLEntry extends SiteMapEntry
 	{
 	/**
+	 * Use for value of $changeFrequence.
+	 *
+	 * @var String
+	 */
+	const CHANGE_FEQUENCE_NEVER = "never";
+		
+	/**
+	 * Use for value of $changeFrequence.
+	 *
+	 * @var String
+	 */
+	const CHANGE_FEQUENCE_YEARLY = "yearly";
+		
+	/**
+	 * Use for value of $changeFrequence.
+	 *
+	 * @var String
+	 */
+	const CHANGE_FEQUENCE_MONTHLY = "monthly";
+		
+	/**
+	 * Use for value of $changeFrequence.
+	 *
+	 * @var String
+	 */
+	const CHANGE_FEQUENCE_WEEKLY = "weekly";
+		
+	/**
+	 * Use for value of $changeFrequence.
+	 *
+	 * @var String
+	 */
+	const CHANGE_FEQUENCE_DAILY = "daily";
+		
+	/**
+	 * Use for value of $changeFrequence.
+	 *
+	 * @var String
+	 */
+	const CHANGE_FEQUENCE_HOURLY = "hourly";
+		
+	/**
+	 * Use for value of $changeFrequence.
+	 *
+	 * @var String
+	 */
+	const CHANGE_FEQUENCE_ALWAYS = "always";
+	
+	/**
+	 * Interval of entry's frequency change
+	 *
+	 * @var String|null
+	 */
+	private $changeFrequence;
+	
+	/**
+	 * The priority of this entry relative to other entry on your site
+	 *
+	 * @var String|null
+	 */
+	private $priority;
+	
+	/**
 	 * Array of image entries for Google
 	 *
 	 * @var	array
@@ -54,6 +117,60 @@ class URLEntry extends SiteMapEntry
 		$this->changeFrequence = $changeFrequence;
 		$this->priority = $priority;
 		$this->googleImageEntries = $googleImageEntries;
+		}
+	
+
+	/**
+	 * @return	String		Interval of entry's frequency change
+	 */
+	public function getChangeFrequence()
+		{
+		return $this->changeFrequence;
+		}
+		
+	/**
+	 * @param	String|null	$changeFrequence
+	 * 				Interval of entry's frequency change.<br />
+	 * 				Use a this class's constant (CHANGE_FEQUENCE_...).<br />
+	 * 				Set null for not display
+	 * @return	SiteMapEntry	this
+	 */
+	public function setChangeFrequence($changeFrequence)
+		{
+		if (in_array($changeFrequence,
+					array(self::CHANGE_FEQUENCE_ALWAYS,
+							self::CHANGE_FEQUENCE_HOURLY,
+							self::CHANGE_FEQUENCE_DAILY,
+							self::CHANGE_FEQUENCE_WEEKLY,
+							self::CHANGE_FEQUENCE_MONTHLY,
+							self::CHANGE_FEQUENCE_YEARLY,
+							self::CHANGE_FEQUENCE_NEVER,)
+			))
+			$this->changeFrequence = $changeFrequence;
+		
+		else $changeFrequence = null;
+		
+		return $this;
+		}
+		
+	/**
+	 * @return	String		The priority of this entry relative to other entries on your site
+	 */
+	public function getPriority()
+		{
+		return $this->priority;
+		}
+		
+	/**
+	 * @param	string|null		$priority
+	 * 				The priority of this entry relative to other entries on your site.<br />
+	 * 				Set null for not display
+	 * @return	SiteMapEntry	this
+	 */
+	public function setPriority($priority)
+		{
+		$this->priority = $priority;
+		return $this;
 		}
 		
 	/**

@@ -118,12 +118,6 @@ class XMLFormatter extends Formatter
 				if ($siteMapEntry->getLastModification())
 					$writer->writeElement("lastmod", $siteMapEntry->getLastModification()->format(\DateTime::W3C));
 		
-				if ($siteMapEntry->getChangeFrequence())
-					$writer->writeElement("changefreq", $siteMapEntry->getChangeFrequence());
-		
-				if ($siteMapEntry->getPriority())
-					$writer->writeElement("priority", $siteMapEntry->getPriority());
-				
 				$writer->endElement();				
 				}
 			}
