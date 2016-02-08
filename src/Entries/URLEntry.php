@@ -2,7 +2,7 @@
 /*
  * This file is part of the SiteMapGenerator package.
  *
- * (c) Brack Romain <https://github.com/cyberomulus>
+ * (c) Brack Romain <http://www.cyberomulus.me>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,7 @@ use Cyberomulus\SiteMapGenerator\Entries\SiteMapEntry;
 /**
  * This class represent an URL entry
  * 
- * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
+ * @author cyberomulus - Brack Romain <me@cyberomulus.me>
  */
 class URLEntry extends SiteMapEntry
 	{
