@@ -11,7 +11,7 @@ Just add the dependencies to your composer.json:
 	
 	{
 		"require": {
-            "cyberomulus/sitemap-generator": "~3.0"
+            "cyberomulus/sitemap-generator": "~2.0"
         }
     }
 	
