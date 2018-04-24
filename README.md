@@ -11,7 +11,7 @@ Just add the dependencies to your composer.json:
 	
 	{
 		"require": {
-            "cyberomulus/sitemap-generator": "~2.0"
+            "cyberomulus/sitemap-generator": "~3.0"
         }
     }
 	
@@ -35,7 +35,7 @@ It takes minimum PHP version 5.2.0 with XMLWriter extension enabled (it is enabl
 
 1. Create one or more `URLEntry`
 2. Create one `SiteMap`
-3. Add all `URLEntry` in `SiteMapIndex`
+3. Add all `URLEntry` in `SiteMap`
 4. Create a Formatter (example : `XMLFormatter`)
 5. Use `Formatter::formatSiteMap()`
 
