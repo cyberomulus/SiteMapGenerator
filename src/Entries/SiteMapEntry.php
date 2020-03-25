@@ -2,7 +2,7 @@
 /*
  * This file is part of the SiteMapGenerator package.
  *
- * (c) Brack Romain <http://www.cyberomulus.me>
+ * (c) Brack Romain <cyberomulus.me@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,7 @@ namespace Cyberomulus\SiteMapGenerator\Entries;
 /**
  * This class represent an SiteMap entry for SiteMap Index
  * 
- * @author cyberomulus - Brack Romain <me@cyberomulus.me>
+ * @author cyberomulus - Brack Romain <cyberomulus.me@gmail.com>
  */
 class SiteMapEntry
 	{	
@@ -66,7 +66,7 @@ class SiteMapEntry
 		}
 		
 	/**
-	 * @return	DateTime
+	 * @return	\DateTime
 	 * 				Date of entrys last modification
 	 */
 	public function getLastModification()

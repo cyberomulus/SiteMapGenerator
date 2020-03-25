@@ -2,7 +2,7 @@
 /*
  * This file is part of the SiteMapGenerator package.
  *
- * (c) Brack Romain <http://www.cyberomulus.me>
+ * (c) Brack Romain <cyberomulus.me@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,7 +18,7 @@ use Cyberomulus\SiteMapGenerator\Entries\GoogleImageEntry;
 /**
  * This formatter format in XML specification
  *
- * @author cyberomulus - Brack Romain <me@cyberomulus.me>
+ * @author cyberomulus - Brack Romain <cyberomulus.me@gmail.com>
  */
 class XMLFormatter extends Formatter
 	{

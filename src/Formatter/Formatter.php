@@ -2,7 +2,7 @@
 /*
  * This file is part of the SiteMapGenerator package.
  *
- * (c) Brack Romain <http://www.cyberomulus.me>
+ * (c) Brack Romain <cyberomulus.me@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,7 @@ use Cyberomulus\SiteMapGenerator\SiteMapIndex;
 /**
  * Abstract class for all formatter
  *
- * @author cyberomulus - Brack Romain <me@cyberomulus.me>
+ * @author cyberomulus - Brack Romain <cyberomulus.me@gmail.com>
  */ 
 abstract class Formatter
 	{
